@@ -64,3 +64,9 @@
   background-color: var(--bg);
   color: white;
 }
+
+@media (max-width: 600px) {
+  ..tableContainer a {
+    padding: 0px;
+  }
+}

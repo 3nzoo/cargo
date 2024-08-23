@@ -24,7 +24,10 @@
 .container {
   text-align: center;
   padding-bottom: 20px;
-  margin-bottom: 50px;
+}
+
+.container h1 {
+  font-size: 2em;
 }
 
 .tableContainer {
@@ -36,25 +39,57 @@
 
 .tableContainer tr {
   height: 55px;
+  font-size: 1rem;
+  margin: 20px;
+  padding: 20px;
+}
+
+.tableContainer tr:hover {
+  background: #d0d2d6;
+  color: #000;
 }
 
 .tableContainer td {
   padding: 10px;
 }
+.title {
+  display: flex;
+  flex-direction: column;
+}
 
 .tableContainer a {
-  background: white;
-  color: gray;
-  border-radius: 10px;
   padding: 10px;
+  display: block;
 }
 
 .tableContainer a:hover {
   background: #d0d2d6;
+  color: #000;
 }
 
+.even {
+  background-color: #233b5b;
+}
+
+.tableContainer .action:hover {
+  background-color: var(--bg);
+  color: white;
+}
+
+.back {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: var(--btn);
+  color: white;
+  float: right;
+  border-radius: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 5rem;
+  margin-left: auto;
+}
 @media (max-width: 600px) {
-  ..tableContainer a {
+  .tableContainer a {
     padding: 0px;
   }
 }

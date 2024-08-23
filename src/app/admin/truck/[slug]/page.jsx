@@ -2,7 +2,8 @@
 import Loading from '@/app/loading';
 import AdminUser from '@/components/adminUser/adminUser';
 import DeliveriesList from '@/components/deliveriesList/deliveriesList';
-import { getBranchPosts, getUserBySlug } from '@/lib/data';
+import { auth } from '@/lib/auth';
+import { getTruckDeliveries, getUserBySlug } from '@/lib/data';
 import React, { Suspense } from 'react';
 
 //  1. show complete User/branch details
@@ -21,10 +22,10 @@ export const generateMetadata = async ({ params }) => {
   };
 };
 
-const BrachDetailsPage = async ({ params }) => {
+const TruckDetailsPage = async ({ params }) => {
   const { slug } = params;
   const user = await getUserBySlug(slug);
-  const posts = await getBranchPosts(user.username);
+  const posts = await getTruckDeliveries(user.contact);
 
   return (
     <div>
@@ -33,9 +34,8 @@ const BrachDetailsPage = async ({ params }) => {
       </Suspense>
 
       <DeliveriesList posts={posts} username={user.username} />
-      {/* <BranchPostsList with view, pull the table from admin home */}
     </div>
   );
 };
 
-export default BrachDetailsPage;
+export default TruckDetailsPage;

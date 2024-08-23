@@ -1,13 +1,18 @@
 .container {
   display: flex;
-  gap: 100px;
+  align-items: center;
+  justify-content: center;
 }
 
-.textContainer {
-  flex: 1;
+.wrapper {
+  width: 500px;
+  background-color: var(--bgSoft);
+  padding: 50px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  text-align: center;
+  gap: 30px;
+  border-radius: 5px;
 }
 
 .title {

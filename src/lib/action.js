@@ -1,7 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Post, User } from "./models";
+import { Post, AdUser } from "./models";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
@@ -41,6 +41,13 @@ export const addPost = async (prevState, formData) => {
   }
 };
 
+
+
+export const updateDelivery = async (formData) => {
+  // 
+  console.log(33333, '---- ACTIONS', formData)
+};
+
 export const deletePost = async (formData) => {
   const { id } = Object.fromEntries(formData);
 
@@ -54,7 +61,7 @@ export const deletePost = async (formData) => {
 
     // await Post.findByIdAndDelete(id);
     console.log("deleted from db");
-    revalidatePath("/branch");
+    revalidatePath("/truck");
     revalidatePath("/admin");
 
   } catch (err) {
@@ -68,24 +75,16 @@ export const deletePost = async (formData) => {
 export const addUser = async (prevState, formDataValues) => {
 
   const { username, name, password, city, contact, incorporate, gmaps } = Object.fromEntries(formDataValues);
-
   try {
     await connectToDb();
-
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
-
-    const newUser = new User({
+    const newUser = new AdUser({
       username,
-      name,
-      city,
-      contact,
-      branchName: username + 'FC',
-      incorporate,
       password: hashedPassword,
-      gmaps
+      name,
+      contact,
     });
-
     await newUser.save();
     console.log("saved to db");
     revalidatePath("/");
@@ -101,9 +100,8 @@ export const deleteUser = async (formData) => {
 
   try {
     connectToDb();
-
     await Post.deleteMany({ userId: id });
-    await User.findByIdAndDelete(id);
+    await AdUser.findByIdAndDelete(id);
     console.log("deleted from db");
     revalidatePath("/admin");
   } catch (err) {
@@ -134,8 +132,6 @@ export const login = async (prevState, formData) => {
     if (err.message.includes("CredentialsSignin")) {
       return { error: "Invalid username or password" };
     }
-
     throw err;
-
   }
 };

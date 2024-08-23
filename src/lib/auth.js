@@ -1,14 +1,14 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { connectToDb } from "./utils";
-import { User } from "./models";
+import { AdUser } from "./models";
 import bcrypt from "bcryptjs";
 import { authConfig } from "./auth.config";
 
 const login = async (credentials) => {
   try {
     await connectToDb();
-    const user = await User.findOne({ username: credentials.username });
+    const user = await AdUser.findOne({ username: credentials.username });
 
     if (!user) return { success: false, error: "Wrong credentials!" };
 

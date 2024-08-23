@@ -11,10 +11,6 @@ const links = [
     title: 'Home',
     path: '/',
   },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
 ];
 
 const linksAdmin = [
@@ -26,20 +22,12 @@ const linksAdmin = [
     title: 'Deliveries',
     path: '/deliveries',
   },
-  {
-    title: 'Contact',
-    path: '/contact',
-  },
 ];
 
-const linksBranch = [
+const linksTruck = [
   {
     title: 'Home',
-    path: '/branch',
-  },
-  {
-    title: 'Contact',
-    path: '/contact',
+    path: '/truck',
   },
 ];
 
@@ -50,7 +38,7 @@ const Links = ({ session }) => {
     ? links
     : session?.user?.isAdmin
     ? linksAdmin
-    : linksBranch;
+    : linksTruck;
   // TEMPORARY
   // const session = true;
   // const isAdmin = true;
@@ -67,7 +55,8 @@ const Links = ({ session }) => {
             </form>
           </>
         ) : (
-          <NavLink item={{ title: 'Login', path: '/login' }} />
+          ''
+          // <NavLink item={{ title: 'Login', path: '/login' }} />
         )}
       </div>
 

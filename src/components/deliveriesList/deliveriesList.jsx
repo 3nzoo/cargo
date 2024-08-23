@@ -1,4 +1,3 @@
-import { getBranchPosts } from '@/lib/data';
 import styles from './DeliveriesList.module.css';
 
 import Link from 'next/link';
@@ -13,22 +12,17 @@ const DeliveriesList = async ({ posts, username }) => {
       <table className={styles.tableContainer}>
         <thead>
           <tr className={styles.action}>
-            <th>Action</th>
             <th>Name</th>
             <th>Address</th>
             <th>Contact</th>
             <th>Status</th>
-            <th>Truck Number</th>
-            <th>Distance {`(km)`}</th>
+            <th>Distance</th>
           </tr>
         </thead>
         <tbody>
           {posts?.map((post, index) => {
             return (
               <tr key={post.id} className={index % 2 === 0 ? styles.even : ''}>
-                <td>
-                  <Link href={`/delivery/${post.slug}`}>View Details</Link>
-                </td>
                 <td>
                   <Link href={`/delivery/${post.slug}`}>{post.name}</Link>
                 </td>
@@ -43,11 +37,8 @@ const DeliveriesList = async ({ posts, username }) => {
                 </td>
                 <td>
                   <Link href={`/delivery/${post.slug}`}>
-                    {post.truck_number}
+                    {post.distance > 0 ? 'km' : ''}
                   </Link>
-                </td>
-                <td>
-                  <Link href={`/delivery/${post.slug}`}>{post.distance}</Link>
                 </td>
               </tr>
             );

@@ -1,5 +1,40 @@
 import mongoose from "mongoose";
 
+const adUserSchema = new mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      min: 3,
+      max: 20,
+    },
+    password: {
+      type: String,
+    },
+    name: {
+      type: String,
+      required: true,
+      max: 50,
+    },
+    contact: {
+      type: String,
+      required: true,
+      max: 20,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isActive: {
+      type: Boolean,
+      default: true,
+    },
+  },
+  { timestamps: true }
+);
+
+
 const userSchema = new mongoose.Schema(
   {
     username: {
@@ -51,9 +86,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// ? truck number, userId, item_category, name ,address
-// ? contact, status, lastUpdate, image_link, slug
-
 const postSchema = new mongoose.Schema(
   {
     name: {
@@ -104,5 +136,8 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
+
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);
+export const AdUser = mongoose.models?.AdUser || mongoose.model("AdUser", adUserSchema);

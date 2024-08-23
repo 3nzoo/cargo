@@ -4,7 +4,6 @@ import { addUser } from '@/lib/action';
 import styles from './adminUserForm.module.css';
 import { useFormState } from 'react-dom';
 import { useRouter } from 'next/navigation';
-import Link from 'next/link';
 
 const AdminUserForm = () => {
   const [state, formAction] = useFormState(addUser, undefined);
@@ -27,29 +26,12 @@ const AdminUserForm = () => {
           BACK
         </button>
       </div>
-      <h1>Add New Branch</h1>
+      <h1>Add New Truck</h1>
       <input type='text' name='username' placeholder='Username' />
       <input type='text' name='name' placeholder='Contact Person' />
       <input type='password' name='password' placeholder='Password' />
-      <input type='text' name='city' placeholder='City' />
       <input type='text' name='contact' placeholder='Contact Number' />
-      <input type='text' name='incorporate' placeholder='Incorporate Company' />
-      <input type='text' name='gmaps' placeholder='Google Maps Link' />
-      <Link
-        className={styles.maps}
-        href={`http://maps.google.com`}
-        target='_blank'
-      >
-        Google Maps
-      </Link>
-
-      {/* <input type='text' name='img' placeholder='img' /> */}
-      {/* <select name='isAdmin'>
-        <option value='false'>Is Admin?</option>
-        <option value='false'>No</option>
-        <option value='true'>Yes</option>
-      </select> */}
-      <button className={styles.add}>Add Branch </button>
+      <button className={styles.add}>Add Truck </button>
       <button className={styles.close} onClick={handleBack}>
         Cancel
       </button>

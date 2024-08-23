@@ -24,7 +24,7 @@ const AdminPostForm = ({ branchName, gmaps }) => {
 
   if (state?.success) {
     setTimeout(() => {
-      router.replace('/branch'); // Redirect to the home page or any other route
+      router.replace('/truck'); // Redirect to the home page or any other route
       // router.push('/');
     }, 1500);
   }

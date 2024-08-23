@@ -58,7 +58,28 @@
   border-radius: 10px;
   margin-top: -20px;
 }
+
+.accept {
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: green;
+  color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.accept:hover {
+  background-color: #015501;
+}
 .cancel {
   background-color: #f44336;
   color: white;
+}
+
+.down1 {
+  padding: 10px 30px;
+}
+
+.down2 {
+  padding: 10px 30px;
 }

@@ -23,21 +23,16 @@ const AdminPage = async () => {
           </Suspense>
         </div>
       </div>
-
       <div className={styles.row}>
         <div className={styles.colHeader}>
-          <Link href={'/admin/branch/new'}>Add Branch</Link>
+          <Link href={'/admin/truck/new'}>Add Truck</Link>
         </div>
-        {/* <Link href={'/admin/branch/new'}>add Branch</Link> */}
+
         <div className={styles.col}>
-          {/* <Link href={'/admin/branch/new'}>add Branch</Link> */}
           <Suspense fallback={<Loading />}>
             <AdminUsers />
           </Suspense>
         </div>
-        {/* <div className={styles.col}>
-          <AdminUserForm />
-        </div> */}
       </div>
     </div>
   );
