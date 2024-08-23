@@ -54,7 +54,7 @@
 }
 
 @media (max-width: 600px) {
-  ..tableContainer a {
+  .tableContainer a {
     padding: 0px;
   }
 }
