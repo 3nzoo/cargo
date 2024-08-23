@@ -4,11 +4,11 @@ module.exports = {
   }],
   deploy: {
     production: {
-      key: 'key.pem',
+      key: 'key2.pem',
       user: 'ubuntu',
-      host: '13.213.47.25',
+      host: '13.54.10.157',
       ref: 'origin/main',
-      repo: 'git@github.com:3nzoo/keatrucking.git',
+      repo: 'git@github.com:3nzoo/cargo.git',
       path: '/home/ubuntu',
       'pre-deploy-local': '',
       'post-deploy': 'source ~/.nvm/nvm.sh && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
