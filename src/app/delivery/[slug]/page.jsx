@@ -79,7 +79,7 @@ const DeliveryPage = async ({ params }) => {
             <h3> - {post?.remarks}</h3>
           </div>
         )}
-        {post.img !== '-' && (
+        {post.img !== '-' && post.status !== 'canceled' && (
           <div className={styles.section}>
             <h2>Delivery Proof:</h2>
             <Image
@@ -90,17 +90,17 @@ const DeliveryPage = async ({ params }) => {
             />
             <h3>- {post.img} </h3>
             <a
-              href={`http://localhost:3000${testImage.src}`}
+              href='https://keaproof.s3.ap-southeast-1.amazonaws.com/Slice+1.png'
               className={styles.down1}
               download
             >
-              Download1
+              Download1 proof
             </a>
 
             <a
-              href={`http://cargo.keatrucking.com${testImage.src}`}
+              href='https://keaproof.s3.ap-southeast-1.amazonaws.com/Slice+1.png'
               className={styles.down2}
-              download
+              download='proof.jpg'
             >
               Download2
             </a>
@@ -108,7 +108,7 @@ const DeliveryPage = async ({ params }) => {
             <a
               href={`https://keaproof.s3.ap-southeast-1.amazonaws.com/Slice+1.png`}
               className={styles.down3}
-              download
+              download='proof.png'
             >
               Download3
             </a>
